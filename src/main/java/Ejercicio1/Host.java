@@ -44,14 +44,7 @@ public class Host {
             System.out.println(e.getMessage());
         }
     }
-/*
-    public void startLoop(){
-        while (true){
 
-        }
-    }
-
- */
 
     public void getInputData(){
 
@@ -79,15 +72,6 @@ public class Host {
             }
         }
     }
-
-/*
-    public void writeResponse(){
-        while(true){
-            sendResponse(ammountOfCharactersCounted());
-        }
-    }
-
- */
 
 
     private int ammountOfCharactersCounted() {
@@ -142,37 +126,4 @@ public class Host {
         this.message = message;
     }
 
-/*
-    public cHost() {
-
-        ServerSocket server = null;
-        Socket sc = null;
-        DataInputStream in;
-        DataOutputStream out;
-        try{
-            server = new ServerSocket(PORT);
-
-            while (true){
-                sc = server.accept();
-                System.out.println("Connection started.");
-
-                in = new DataInputStream(sc.getInputStream());
-                out = new DataOutputStream(sc.getOutputStream());
-
-                String incommingMessage = in.readUTF();
-                System.out.println(incommingMessage);
-
-                String outcomminMessage = "some message to return to the client";
-                out.writeUTF(outcomminMessage);
-
-                sc.close();
-                System.out.println("Connection finished.");
-
-            }
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
- */
 }
