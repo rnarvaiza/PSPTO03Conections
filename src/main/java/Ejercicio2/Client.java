@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 /**
  * @author Rafa Narvaiza
- * EJ2. UDP Client side implementation. Here we'll work through incoming and outgoing datagrams to manage the differents answers that we'll receive from the server.
+ * EJ2. UDP Ejercicio3.Client3 side implementation. Here we'll work through incoming and outgoing datagrams to manage the differents answers that we'll receive from the server.
  */
 
 public class Client {

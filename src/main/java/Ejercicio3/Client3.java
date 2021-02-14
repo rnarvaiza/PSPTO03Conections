@@ -9,12 +9,12 @@ import java.util.Scanner;
 
 /**
  * @author Rafa Narvaiza
- * Client will ask for an IP and PORT and then it would be necessary to put a sentece.
+ * Ejercicio3.Client3 will ask for an IP and PORT and then it would be necessary to put a sentece.
  */
 
-public class Client {
+public class Client3 {
     private static final String WHITELIST_IP = "127.0.0.1";
-    private static final String WHITELIST_PORT = "4444";
+    private static final String WHITELIST_PORT = "5000";
     private static final String CONNECTION_CLOSING_MSG = "Shutting down connection.";
     private static final String STRING_FOR_SERVER = "Please type the phrase for the server:";
     private static final String END_CONNECTION = "*";

@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  * @author Rafa Narvaiza
- * EJ1. Ejercicio1.Client has to request the server IP:PORT. Once it has been done, client will request a phrase through console and will sent it to the server.
+ * EJ1. Ejercicio1.Ejercicio3.Client3 has to request the server IP:PORT. Once it has been done, client will request a phrase through console and will sent it to the server.
  * The client will order to close the connection when an asterisk will be typed.
  */
 

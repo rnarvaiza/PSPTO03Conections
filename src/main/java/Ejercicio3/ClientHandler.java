@@ -23,7 +23,7 @@ public class ClientHandler extends Thread{
 
 
     /**
-     * Constructor to initialize the new thread of ClientHandler with those given parameters.
+     * Constructor to initialize the new thread of Ejercicio3.ClientHandler with those given parameters.
      * @param in
      * @param out
      * @param client

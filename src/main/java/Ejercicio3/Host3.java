@@ -5,12 +5,12 @@ import java.net.*;
 
 /**
  * @author Rafa Narvaiza
- * Host will be executing repeatedly, each time a client attempts to connect, host will instantiate a new thread to attend the client request.
+ * Ejercicio3.Host3 will be executing repeatedly, each time a client attempts to connect, host will instantiate a new thread to attend the client request.
  */
 
-public class Host{
+public class Host3 {
 
-    private static final int PORT = 4444;
+    private static final int PORT = 5000;
     private DataInputStream in = null;
     private  DataOutputStream out = null;
 
@@ -20,7 +20,6 @@ public class Host{
         DataOutputStream out;
         ServerSocket server = new ServerSocket(PORT);;
 
-        System.out.println("Waiting for incomming peers on port: " + PORT);
 
         /**
          * Inside the next loop, we initialize an empty socket. Then, each atempt of conection will try to instantiate a new thread of the clientHandler givin through
