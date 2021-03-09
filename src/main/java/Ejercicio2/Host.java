@@ -61,17 +61,7 @@ public class Host {
         }
     }
 
-    public void incommingChainFromClient(){
-        setIncomingDP(new DatagramPacket(getReceived(), getReceived().length));
-        try {
-            ds.receive(getIncomingDP());
-            setAuthor(new String(getIncomingDP().getData(), getIncomingDP().getOffset(), getIncomingDP().getLength()));
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-        System.out.println("Author: " + getAuthor() + " has been required.");
 
-    }
 
     public void saveIncommingAddress(){
         setOrigin(getIncomingDP().getAddress());
@@ -82,7 +72,8 @@ public class Host {
         boolean found = false;
         try{
             for(Quotes q: quotes){
-                if(getAuthor().contains(q.getAuthor())){
+                String a = q.getAuthor();
+                if(a.equalsIgnoreCase(author)){
                     answer.setExist(true);
                     answer.setText(q.getText());
                     found=true;
@@ -109,17 +100,33 @@ public class Host {
         System.out.println("Answer: " + answer.getText() + " sent.");
     }
 
+    public void incommingChainFromClient(){
+        setIncomingDP(new DatagramPacket(getReceived(), getReceived().length));
+        try {
+            ds.receive(getIncomingDP());
+            setAuthor(new String(getIncomingDP().getData(), getIncomingDP().getOffset(), getIncomingDP().getLength()));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Author: " + getAuthor() + " has been required.");
+
+    }
+
     public void manageAnswer(){
         outcommingChainToClient();
-        if(!answer.exist()){
+        if(answer.exist()==false){
+            setIncomingDP(new DatagramPacket(getReceived(), getReceived().length));
             try {
-                setIncomingDP(new DatagramPacket(getReceived(), getReceived().length));
                 ds.receive(getIncomingDP());
+                setQuote(new String(getIncomingDP().getData(), getIncomingDP().getOffset(), getIncomingDP().getLength()));
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-            setQuote(new String(getIncomingDP().getData(), getIncomingDP().getOffset(), getIncomingDP().getOffset()));
             quotes.add(new Quotes(getQuote(),getAuthor()));
+            System.out.println("New quote has been added: Author: " + getAuthor() + " , quote: " + getQuote());
+            for (Quotes q : quotes){
+                System.out.println("Author: " + q.getAuthor() + ". Quote: " + q.getText());
+            }
         }
     }
 
@@ -193,7 +200,7 @@ public class Host {
             h.initialize();
             h.hostIterator();
         }finally {
-            //h.closeConn();
+
         }
 
     }

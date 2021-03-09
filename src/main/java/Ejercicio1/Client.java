@@ -30,38 +30,7 @@ public class Client {
     private static int port;
 
 
-    public String getIncommingMessage() {
-        return incommingMessage;
-    }
 
-    public void setIncommingMessage(String incommingMessage) {
-        this.incommingMessage = incommingMessage;
-    }
-
-    public String getOutcommingMessage() {
-        return outcommingMessage;
-    }
-
-    public void setOutcommingMessage(String outcommingMessage) {
-        this.outcommingMessage = outcommingMessage;
-    }
-
-
-    public static String getWhitelistIp() {
-        return ip;
-    }
-
-    public void setIp(String ip) {
-        this.ip = ip;
-    }
-
-    public static int getWhitelistPort() {
-        return port;
-    }
-
-    public void setPort(int port) {
-        this.port = port;
-    }
 
     /**
      * Initialization socket on isolation mode.
@@ -108,8 +77,10 @@ public class Client {
                 System.out.println(STRING_FOR_SERVER);
                 s= scString.nextLine();
             }while(s.isEmpty());
+
             setOutcommingMessage(s);
             sendMessage(getOutcommingMessage());
+
             if(getOutcommingMessage().equals(END_CONNECTION)){
                 System.out.println(CONNECTION_CLOSING_MSG);
                 closeConn();
@@ -167,7 +138,6 @@ public class Client {
     }
 
 
-
     public void executeConn(){
             try{
                 initConn();
@@ -210,7 +180,38 @@ public class Client {
             setPort(port);
         }
 
+    }
+    public String getIncommingMessage() {
+        return incommingMessage;
+    }
 
+    public void setIncommingMessage(String incommingMessage) {
+        this.incommingMessage = incommingMessage;
+    }
+
+    public String getOutcommingMessage() {
+        return outcommingMessage;
+    }
+
+    public void setOutcommingMessage(String outcommingMessage) {
+        this.outcommingMessage = outcommingMessage;
+    }
+
+
+    public static String getWhitelistIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public static int getWhitelistPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 
 

@@ -16,10 +16,10 @@ public class Client {
     private byte[] sent;
     private byte[] received;
     public DatagramPacket outgoingDP = null;
-   // public DatagramPacket dpOutcomming2 = null;
     public DatagramPacket dpIncomming = null;
     public DatagramSocket ds = null;
     private String author ="";
+    private String outcommingQuote = "";
     private String incommingQuote = "";
     public InetAddress ia= null;
     public BufferedReader br = null;
@@ -68,7 +68,7 @@ public class Client {
         sc = new Scanner(System.in);
         System.out.println(stForPrint);
         s=sc.nextLine();
-        setAuthor(s);
+       // setAuthor(s);
 
         return s;
     }
@@ -79,7 +79,9 @@ public class Client {
 
     public void outgoingChainToServer(){
         try {
-            setSent(getStringFromConsole(Constants.AUTHOR_QUESTION).getBytes());
+            String message = getStringFromConsole(Constants.AUTHOR_QUESTION);
+            setAuthor(message);
+            setSent(message.getBytes());
             outgoingDP = new DatagramPacket(getSent(), getSent().length, ia, Integer.parseInt(Constants.WHITELIST_PORT));
             ds.send(outgoingDP);
         } catch (IOException e) {
@@ -111,10 +113,11 @@ public class Client {
         if(!authorNotFound()){
             System.out.println("The phrase: " + getIncommingQuote() + " has been written by: " + getAuthor());
         }else{
-            setSent(getStringFromConsole(Constants.INPUT_AUTHOR_PHRASE).getBytes());
+            String message = getStringFromConsole(Constants.INPUT_AUTHOR_PHRASE);
+            setOutcommingQuote(message);
+            setSent(message.getBytes());
             try {
-                dpIncomming = new DatagramPacket(getReceived(), getReceived().length);
-                ds.receive(dpIncomming);
+                outgoingDP = new DatagramPacket(getSent(), getSent().length, ia, Integer.parseInt(Constants.WHITELIST_PORT));
                 ds.send(new DatagramPacket(getSent(), getSent().length, ia, Integer.parseInt(Constants.WHITELIST_PORT)));
             } catch (IOException e) {
                 System.out.println(e.getMessage());
@@ -178,5 +181,13 @@ public class Client {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getOutcommingQuote() {
+        return outcommingQuote;
+    }
+
+    public void setOutcommingQuote(String outcommingQuote) {
+        this.outcommingQuote = outcommingQuote;
     }
 }
