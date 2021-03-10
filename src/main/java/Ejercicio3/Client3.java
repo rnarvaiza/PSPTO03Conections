@@ -28,38 +28,7 @@ public class Client3 {
     private static int port;
 
 
-    public String getIncommingMessage() {
-        return incommingMessage;
-    }
 
-    public void setIncommingMessage(String incommingMessage) {
-        this.incommingMessage = incommingMessage;
-    }
-
-    public String getOutcommingMessage() {
-        return outcommingMessage;
-    }
-
-    public void setOutcommingMessage(String outcommingMessage) {
-        this.outcommingMessage = outcommingMessage;
-    }
-
-
-    public static String getWhitelistIp() {
-        return ip;
-    }
-
-    public void setIp(String ip) {
-        this.ip = ip;
-    }
-
-    public static int getWhitelistPort() {
-        return port;
-    }
-
-    public void setPort(int port) {
-        this.port = port;
-    }
 
     /**
      * Initialization socket on isolation mode.
@@ -208,12 +177,44 @@ public class Client3 {
             setPort(port);
         }
 
+    }
 
+    public String getIncommingMessage() {
+        return incommingMessage;
+    }
+
+    public void setIncommingMessage(String incommingMessage) {
+        this.incommingMessage = incommingMessage;
+    }
+
+    public String getOutcommingMessage() {
+        return outcommingMessage;
+    }
+
+    public void setOutcommingMessage(String outcommingMessage) {
+        this.outcommingMessage = outcommingMessage;
+    }
+
+
+    public static String getWhitelistIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public static int getWhitelistPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 
 
     public static void main(String[] args) {
-        Ejercicio1.Client client = new Ejercicio1.Client();
+        Ejercicio3.Client3 client = new Ejercicio3.Client3();
         client.executeConn();
     }
 }

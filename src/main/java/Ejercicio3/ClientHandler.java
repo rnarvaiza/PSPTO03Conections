@@ -62,8 +62,8 @@ public class ClientHandler extends Thread{
      */
 
     public void sendResponse(String response){
-        if(!response.isEmpty()
-        ){
+        if(!response.isEmpty())
+        {
             try{
                 out.writeUTF(response);
                 out.flush();
